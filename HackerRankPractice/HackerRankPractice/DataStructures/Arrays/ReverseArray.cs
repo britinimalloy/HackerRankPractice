@@ -10,7 +10,7 @@ namespace HackerRankPractice.DataStructures.Arrays
     class ReverseArray
     {
         /// <summary>
-        /// This method uses the code suplied by hackerrank for its main function
+        /// This method uses the code suplied by hackerrank's main function
         /// </summary>
         public void GetInput()
         {
@@ -23,7 +23,7 @@ namespace HackerRankPractice.DataStructures.Arrays
         }
 
         /// <summary>
-        /// Instructions per haccerrank: 
+        /// Instructions per hackerrank: 
         /// Given an array, A, of N integers, print each element in reverse order as a single line of space-separated integers.
         /// My plan to solve it:
         /// Since every element in the array needs to be touched, a for loop would be best. I am going to create a new array, using the length of the first to create the length for the new one, and an int to hold the number of the last element in the original array. This is to ensure I can start with the last element in the original array and I will decrement it after the value in that element has been stored in the new array. Hackerrank supplies a main where it gets the input from and takes care of displaying the array once it's been separated, so I just need to take in an int array and output an int array.

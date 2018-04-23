@@ -15,8 +15,8 @@ namespace HackerRankPractice
             Console.WriteLine("Hello, welcome to my app!");
 
             // call the method from here
-            ReverseArray reverseArray = new ReverseArray();
-            reverseArray.GetInput();
+            SparseArrays sparseArray = new SparseArrays();
+            sparseArray.DoSomething();
 
             Console.WriteLine("Press any key to Exit");            
             Console.ReadKey(true); // Close program
@@ -24,13 +24,8 @@ namespace HackerRankPractice
     }
 }
 
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello, welcome to my app!");
-
         //    ReverseArray reverseArray = new ReverseArray();
         //    reverseArray.GetInput();
 
-        //    Console.WriteLine("Press any key to Exit");
-        //    Console.ReadKey(true); // Close program
-        //}
+        //    SparseArrays sparseArray = new SparseArrays();
+        //    sparseArray.DoSomething();
