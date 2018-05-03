@@ -24,14 +24,12 @@ namespace HackerRankPractice.DataStructures.Stacks
 
             int n3 = Convert.ToInt32(n1N2N3[2]);
 
-            int[] h1 = Array.ConvertAll(Console.ReadLine().Split(' '), h1Temp => Convert.ToInt32(h1Temp))
-            ;
+            int[] h1 = Array.ConvertAll(Console.ReadLine().Split(' '), h1Temp => Convert.ToInt32(h1Temp));
 
-            int[] h2 = Array.ConvertAll(Console.ReadLine().Split(' '), h2Temp => Convert.ToInt32(h2Temp))
-            ;
+            int[] h2 = Array.ConvertAll(Console.ReadLine().Split(' '), h2Temp => Convert.ToInt32(h2Temp));
 
-            int[] h3 = Array.ConvertAll(Console.ReadLine().Split(' '), h3Temp => Convert.ToInt32(h3Temp))
-            ;
+            int[] h3 = Array.ConvertAll(Console.ReadLine().Split(' '), h3Temp => Convert.ToInt32(h3Temp));
+
             int result = equalStacks(h1, h2, h3);
 
             //textWriter.WriteLine(result);
@@ -79,10 +77,32 @@ namespace HackerRankPractice.DataStructures.Stacks
         static int equalStacks(int[] h1, int[] h2, int[] h3)
         {
             int num = 0;
-            /*
-             * Write your code here.
-             */
+            //
+            // Write your code here.
+            int h1count = GetStackCount(h1);
+            int h2count = GetStackCount(h2);
+            int h3count = GetStackCount(h3);
+
+            int h1size = GetStackHeight(h1);
+            int h2size = GetStackHeight(h2);
+            int h3size = GetStackHeight(h3);
+            //
             return num;
+        }
+
+        static int GetStackCount(int[] stack)
+        {
+            return stack.Count();
+        }
+
+        static int GetStackHeight(int[] stack)
+        {
+            int total = 0;
+            for (int i = 0; i < stack.Count(); i++)
+            {
+                total += stack[i];
+            }
+            return total;
         }
     }
 }

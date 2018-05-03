@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HackerRankPractice.DataStructures.Stacks;
 
 namespace HackerRankPractice
 {
@@ -15,8 +16,8 @@ namespace HackerRankPractice
             Console.WriteLine("Hello, welcome to my app!");
 
             // call the method from here
-            SparseArrays sparseArray = new SparseArrays();
-            sparseArray.DoSomething();
+            EqualStacks equalStacks = new EqualStacks();
+            equalStacks.DoSomething();
 
             Console.WriteLine("Press any key to Exit");            
             Console.ReadKey(true); // Close program
