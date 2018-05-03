@@ -45,6 +45,7 @@
     <Compile Include="DataStructures\Arrays\ArrayManipulation.cs" />
     <Compile Include="DataStructures\Arrays\ReverseArray.cs" />
     <Compile Include="DataStructures\Arrays\SparseArrays.cs" />
+    <Compile Include="DataStructures\Stacks\Solution.cs" />
     <Compile Include="DataStructures\Stacks\Stacks.cs" />
     <Compile Include="Solutions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
