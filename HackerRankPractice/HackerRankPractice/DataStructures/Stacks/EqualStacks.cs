@@ -79,20 +79,27 @@ namespace HackerRankPractice.DataStructures.Stacks
             int num = 0;
             //
             // Write your code here.
-            int h1count = GetStackCount(h1);
-            int h2count = GetStackCount(h2);
-            int h3count = GetStackCount(h3);
+            //int h1count = GetStackCount(h1);
+            //int h2count = GetStackCount(h2);
+            //int h3count = GetStackCount(h3);
 
-            int h1size = GetStackHeight(h1);
-            int h2size = GetStackHeight(h2);
-            int h3size = GetStackHeight(h3);
+            int h1height = GetStackHeight(h1);
+            int h2height = GetStackHeight(h2);
+            int h3height = GetStackHeight(h3);
+
+            bool areEqual = AreHeightsEqual(h1height, h2height, h3height);
+
+            if (areEqual)
+            {
+                num = h1height;
+            }
+            else
+            {
+                GetHighest(h1height, h2height, h3height);
+                PopToEven(areEqual, h1height, h2height, h3height);
+            }
             //
             return num;
-        }
-
-        static int GetStackCount(int[] stack)
-        {
-            return stack.Count();
         }
 
         static int GetStackHeight(int[] stack)
@@ -103,6 +110,36 @@ namespace HackerRankPractice.DataStructures.Stacks
                 total += stack[i];
             }
             return total;
+        }
+
+        static bool AreHeightsEqual(int height1, int height2, int height3)
+        {
+            if (height1 == height2 && height2 == height3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        static void PopToEven(bool equal, int height1, int height2, int height3)
+        {
+            while (!equal)
+            {
+                int highestStack = GetHighest(height1, height2, height3);
+
+            }
+        }
+
+        static int GetHighest(int height1, int height2, int height3)
+        {
+            return Math.Max(height1, Math.Max(height2, height3));
+        }
+
+        static int GetStackCount(int[] stack)
+        {
+            return stack.Count();
         }
     }
 }
