@@ -9,7 +9,7 @@ namespace HackerRankPractice.DataStructures.Arrays
     class ArrayManipulation
     {
         /// <summary>
-        /// This method uses the code suplied by hackerrank's main function
+        /// This method uses the code supplied by hackerrank's main function
         /// </summary>
         public void DoSomething()
         {
