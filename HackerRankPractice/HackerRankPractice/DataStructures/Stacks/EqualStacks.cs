@@ -14,7 +14,7 @@ namespace HackerRankPractice.DataStructures.Stacks
         /// </summary>
         public void DoSomething()
         {
-            TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+            //TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
             string[] n1N2N3 = Console.ReadLine().Split(' ');
 
@@ -77,37 +77,55 @@ namespace HackerRankPractice.DataStructures.Stacks
         static int equalStacks(int[] h1, int[] h2, int[] h3)
         {
             int num = 0;
-            //
-            // Write your code here.
-            //int h1count = GetStackCount(h1);
-            //int h2count = GetStackCount(h2);
-            //int h3count = GetStackCount(h3);
+            int highestStack = 0;
 
-            int h1height = GetStackHeight(h1);
-            int h2height = GetStackHeight(h2);
-            int h3height = GetStackHeight(h3);
+            Stack<int> stack1 = ArrayToStack(h1);
+            Stack<int> stack2 = ArrayToStack(h2);
+            Stack<int> stack3 = ArrayToStack(h3);
+
+            int h1height = GetStackHeight(stack1);
+            int h2height = GetStackHeight(stack2);
+            int h3height = GetStackHeight(stack3);
 
             bool areEqual = AreHeightsEqual(h1height, h2height, h3height);
 
-            if (areEqual)
+            if (!areEqual)
             {
-                num = h1height;
+                while (!areEqual)
+                {
+                    highestStack = GetHighest(h1height, h2height, h3height);
+
+                    if (highestStack == h1height)
+                    {
+                        PopToEven(stack1);
+                        h1height = GetStackHeight(stack1);
+                    }
+                    else if (highestStack == h2height)
+                    {
+                        PopToEven(stack2);
+                        h2height = GetStackHeight(stack2);
+                    }
+                    else
+                    {
+                        PopToEven(stack3);
+                        h3height = GetStackHeight(stack3);
+                    }
+                    areEqual = AreHeightsEqual(h1height, h2height, h3height);
+                }
+                return h1height;
             }
             else
             {
-                GetHighest(h1height, h2height, h3height);
-                PopToEven(areEqual, h1height, h2height, h3height);
+                return h1height;
             }
-            //
-            return num;
         }
 
-        static int GetStackHeight(int[] stack)
+        static int GetStackHeight(Stack<int> stack)
         {
             int total = 0;
-            for (int i = 0; i < stack.Count(); i++)
+            foreach (int number in stack)
             {
-                total += stack[i];
+                total += number;
             }
             return total;
         }
@@ -123,13 +141,9 @@ namespace HackerRankPractice.DataStructures.Stacks
                 return false;
             }
         }
-        static void PopToEven(bool equal, int height1, int height2, int height3)
+        static void PopToEven(Stack<int> stack)
         {
-            while (!equal)
-            {
-                int highestStack = GetHighest(height1, height2, height3);
-
-            }
+            stack.Pop();
         }
 
         static int GetHighest(int height1, int height2, int height3)
@@ -137,9 +151,28 @@ namespace HackerRankPractice.DataStructures.Stacks
             return Math.Max(height1, Math.Max(height2, height3));
         }
 
-        static int GetStackCount(int[] stack)
+        static Stack<int> ArrayToStack(int[] stack)
         {
-            return stack.Count();
+            stack = ReverseTheArray(stack);
+            Stack<int> s = new Stack<int>();
+            foreach (int number in stack)
+            {
+                s.Push(number);
+            }
+            return s;
+        }
+        public static int[] ReverseTheArray(int[] a)
+        {
+            int[] aRev = new int[a.Length];
+            int lastElement = a.Length - 1;
+
+            for (int ii = 0; ii < a.Length; ii++)
+            {
+                aRev[ii] = a[lastElement];
+                lastElement--;
+            }
+
+            return aRev;
         }
     }
 }
